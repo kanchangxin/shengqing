@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="E:\jar\mysql-connector-java-5.1.6-bin.jar" />
+
+	<context id="MyBatis3" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.MybatisCriteriaPlugin" />
+		<plugin type="org.mybatis.generator.plugins.MybatisServicePlugin">
+			<property name="targetPackage" value="cn.qtone.business.client.mapperclient" />
+			<property name="implementationPackage" value="cn.qtone.services" />
+			<property name="targetProject"
+				value="E:\work_space\launcher_space\Business\src\main\java" />
+			<property name="enableInsert" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" />
+		</plugin>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/qt_test" userId="root"
+			password="etgyd" />
+
+		<javaModelGenerator targetPackage="cn.qtone.business.model"
+			targetProject="E:\work_space\launcher_space\Business\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="cn.qtone.business.map"
+			targetProject="E:\work_space\launcher_space\Business\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- XMLMAPPER SPRING -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="cn.qtone.business.client" targetProject="E:\work_space\launcher_space\Business\src\main\java">
+		</javaClientGenerator>
+
+
+		<table tableName="user">
+			<generatedKey column="user_id" sqlStatement="JDBC" identity="true" />
+		</table>
+
+	</context>
+</generatorConfiguration>
